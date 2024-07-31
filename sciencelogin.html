@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./images/BuiltWScience/builticon.webp" type="img/icontype">
+    <link rel="stylesheet" href="./Assets/builtsciencestyle.css">
+    <title>Built With Science</title>
+
+</head>
+<body>
+    <nav class="signupformpgnav">
+        <div class="logosignup">
+            <img src="./images/BuiltWScience/built logo.webp" alt="logo" width="200px" height="60px">
+        </div>
+    </nav>
+    <main>
+        <div class="mainformback">
+            <div class="signupform">
+                <form>
+                    <h1>Log in</h1><br>
+                    <p id="invalidmsg">Invalid Email or password</p><br>
+                    <label>Email<br><input type="email" name="" id="inputloginmail"class="inputuname"oninput="mailChangelogin(event)"></label><br>
+                    <span id="error4">Please Enter your Email</span><br>
+                    <label> Password<br><input type="text" name="" id="inputloginpass"class="inputuname"oninput="logpassChange(event)"></label><br><br>
+                    <span id="error5">Please Enter your Password</span><br>
+                    <div class="signsub">
+                    <button id="signupsubmit" onclick="loginUserMain(event)">Login</button>
+                </div><br><br>
+                    <span>Need an account?&nbsp;&nbsp;</span><a href="http://127.0.0.1:5500/signupbuilt.html">Sign Up</a>
+                </form>
+            </div>
+        </div>
+    </main>
+    <script src="./jslandpage/builtscience.js"></script>
+</body>
+</html>

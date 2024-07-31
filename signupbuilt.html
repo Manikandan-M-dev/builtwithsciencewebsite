@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./images/BuiltWScience/builticon.webp" type="img/icontype">
+    <link rel="stylesheet" href="./Assets/builtsciencestyle.css">
+    <title>Built With Science</title>
+</head>
+
+<body>
+    <nav class="signupformpgnav">
+        <div class="logosignup">
+            <img src="./images/BuiltWScience/built logo.webp" alt="logo" width="200px" height="60px">
+        </div>
+    </nav>
+    <main>
+        <div class="mainformback">
+            <div class="signupform">
+                <form>
+                    <h1>Sign Up</h1><br>
+                    <label>Name<br><input type="text" name="username" id="usernameinput" class="inputuname"
+                            oninput="unameChange(event)"></label><br>
+                    <span id="error1">Please Enter your Name</span><br>
+                    <label>Email<br><input type="email" name="email" id="mailinput" class="inputuname"
+                            oninput="mailChange(event)"></label><br>
+                    <span id="error3">Please Enter your Email</span><br>
+                    <label>Create Password<br><input type="text" name="password" id="passwordinput" class="inputuname"
+                            oninput="passChange(event)"></label><br>
+                    <span id="error2">Please Enter your Password</span><br><br>
+                    <div class="signsub"> <button id="signupsubmit" onclick="signupmain(event)">Sign Up</button></div><br><br>
+                    <span id="successmsg">Already hava an account?&nbsp;&nbsp;</span><a href="#"
+                        onclick="mainLogin(event)">Login</a>
+                </form>
+            </div>
+        </div>
+    </main>
+    <script src="./jslandpage/builtscience.js"></script>
+</body>
+
+</html>
