@@ -25,10 +25,10 @@
                     <span id="error1">Please Enter your Name</span><br>
                     <label>Email<br><input type="email" name="email" id="mailinput" class="inputuname"
                             oninput="mailChange(event)"></label><br>
-                    <span id="error3">Please Enter your Email</span><br>
-                    <label>Create Password<br><input type="text" name="password" id="passwordinput" class="inputuname"
+                    <span id="error3">Please Enter your Email</span><span id="mailerror">Invalid Mail</span><br>
+                    <label>Password<br><input type="text" name="password" id="passwordinput" class="inputuname"
                             oninput="passChange(event)"></label><br>
-                    <span id="error2">Please Enter your Password</span><br><br>
+                    <span id="error2">Please Enter your Password</span><span id="passerror">Password must be at least 8 characters long and </br> include  at least one uppercase letter, one lowercase </br> letter, and one number.</span><br><br>
                     <div class="signsub"> <button id="signupsubmit" onclick="signupmain(event)">Sign Up</button></div><br><br>
                     <span id="successmsg">Already hava an account?&nbsp;&nbsp;</span><a href="#"
                         onclick="mainLogin(event)">Login</a>

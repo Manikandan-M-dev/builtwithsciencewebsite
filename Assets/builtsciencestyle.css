@@ -5,9 +5,6 @@
 }
 
 /* navbar */
-/* .main{
-    margin-top: 30%;
-} */
 .navElements {
     display: flex;
     width: 100%;
@@ -814,11 +811,11 @@ a {
     color: white;
 }
 .title1 p{
-    font-size: 20px;
+    font-size: 16px;
     color: white;
 }
 .enrollbtn{
-    padding:10px 30px 10px 30px;
+    padding:10px 30px;
     border-radius: 25px;
     border: none;
 }
@@ -881,7 +878,10 @@ a {
     color: red;
     display: none;
 }
-
+#mailerror,#passerror{
+    color: red;
+    display: none;
+}
 .signupform a{
     text-decoration: underline;
     color: blue;
@@ -909,6 +909,23 @@ a {
         display: flex;
         justify-content: center;
         align-items: center;
+    }
+}
+@media screen and (max-width:950px) {
+    .navitems {
+        display: none;
+    }
+    .navbutton{
+        width:65%;
+        margin-left: 10%;
+    }
+    .logo img{
+        padding-left:30px;
+    }
+    .bar{
+        display: block;
+        font-size: 28px;
+        padding-left: 8px;
     }
 }
 @media screen and (max-width:768px) {
@@ -983,6 +1000,68 @@ a {
     .footeritems {
         width: 100%;
     }
+}
+@media screen and (max-width:711px) {
+    .beginInterMen, .beginInterWomen {
+        width: 70%;
+        align-items: center;
+        flex-direction: column;
+    }
+    .beginMen, .InterMen, .beginwomen, .InterWomen {
+        width: 95%;
+    }
+}
+@media screen and (max-width:700px) {
+    .beforeAfter_1,
+    .beforeAfter_2,
+    .beforeAfter_3 {
+        width: 100%;
+    }
+    .subloginnav {
+        display: none;
+        flex-direction: column;
+        width: 100%; 
+        padding-right: 0;
+        align-items:start;
+        background-color:rgb(64,110,223);
+        position: absolute; 
+        top: 80px;
+        left: 0;
+    }
+
+    .subloginnav.show {
+        display: flex;
+    }
+
+    .menu-signup {
+        display: block;
+        font-size: 24px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: white;
+        margin-right: 20px;
+    }
+
+    .navlogin {
+        justify-content: space-between; 
+        padding: 0 20px;
+    }
+
+    .logologin {
+        width: auto;
+    }
+}
+@media screen and (max-width:570px) {
+    .navbutton a:first-child{
+        display: none;
+}
+.signupform{
+    width:330px;
+}
+.inputuname{
+    padding: 8px 30px;
+}
 }
 @media screen and (max-width:425px) {
     .heading h1 {
@@ -1062,12 +1141,12 @@ a {
     .subloginnav {
         display: none;
         flex-direction: column;
-        width: 100%; /* Ensure it takes the full width */
+        width: 100%; 
         padding-right: 0;
         align-items:start;
-        background-color:rgb(64,110,223); /* Ensure background color is applied */
-        position: absolute; /* Ensure it stays within the nav bar */
-        top: 80px; /* Position it below the navbar */
+        background-color:rgb(64,110,223);
+        position: absolute; 
+        top: 80px;
         left: 0;
     }
 
@@ -1081,17 +1160,31 @@ a {
         background: none;
         border: none;
         cursor: pointer;
-        color: white; /* Add color to make it visible */
+        color: white;
         margin-right: 20px;
     }
 
     .navlogin {
-        justify-content: space-between; /* Ensure spacing is correct */
+        justify-content: space-between; 
         padding: 0 20px;
     }
 
     .logologin {
         width: auto;
+    }
+    .signupform h1{
+        font-size: 25px;
+    }
+    #signupsubmit{
+        padding: 10px 60px;
+    }
+}
+@media screen and (max-width:400px){
+    .title1 h1{
+        font-size: 18px;
+    }
+    .enrollbtn{
+        padding: 6px 20px;
     }
 }
 @media screen and (max-width:375px){
@@ -1110,6 +1203,11 @@ a {
     .beginMen h2, .InterMen h2 {
         font-size: 28px;
     }
+}
+@media screen and (max-width:340px){
+.logo img{
+    padding-left: 5px;
+}
 }
 @media screen and (max-width:320px){
     .beginInterMen, .beginInterWomen {
