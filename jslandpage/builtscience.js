@@ -164,7 +164,7 @@ let loginUserMain = (event) => {
                 data.forEach(user => {
                     if (maillogin === user.email && passlogin === user.password) {
                         setTimeout(()=>{
-                        window.location.href = "./Builtwithscience.html";
+                        window.location.href = "./index.html";
                         document.getElementById("invalidmsg").style.display = "none";
                     },1000)
                     }
