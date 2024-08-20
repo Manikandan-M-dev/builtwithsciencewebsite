@@ -1,9 +1,7 @@
-'user strict'
-
+'use strict'
 let successMsg = document.getElementById("successmsg");
 var a = document.getElementById("supplesublist");
 var x = document.getElementById("blogsublist");
-
 let overBlocg = () => {
     if (x.style.display = "none") {
         x.style.display = "block";
@@ -60,73 +58,73 @@ let signlogpage = (event) => {
 
 let signupmain = (event) => {
     event.preventDefault();
-    let fname = document.getElementById("usernameinput").value;
-    let pass = document.getElementById("passwordinput").value;
-    let mailGet = document.getElementById("mailinput").value;
-    let valid=true;
+    let fname = document.getElementById("usernameinput").value.trim();
+    let pass = document.getElementById("passwordinput").value.trim();
+    let mailGet = document.getElementById("mailinput").value.trim();
+    let valid = true;
     if (fname === '') {
         document.getElementById("error1").style.display = "block";
     }
     if (pass === '') {
         document.getElementById("error2").style.display = "block";
         document.getElementById("passerror").style.display = "none";
-       
+
     }
     if (mailGet === '') {
         document.getElementById("error3").style.display = "block";
         document.getElementById("mailerror").style.display = "none";
     }
-        if(mailGet!==""){
-        const validmail=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if(validmail.test(mailGet)){
+    if (mailGet !== "") {
+        const validmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (validmail.test(mailGet)) {
             document.getElementById("mailerror").style.display = "none";
-        }else{
-           document.getElementById("mailerror").style.display = "block";
+        } else {
+            document.getElementById("mailerror").style.display = "block";
             document.getElementById("mailerror").innerHTML = "Invalid mailid";
-            valid=false;
+            valid = false;
         }
     }
-    if(pass!==""){
-        const validpass=/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
-        if(validpass.test(pass)){
+    if (pass !== "") {
+        const validpass = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
+        if (validpass.test(pass)) {
             document.getElementById("passerror").style.display = "none";
         }
-        else{
+        else {
             document.getElementById("passerror").style.display = "block";
             document.getElementById("passerror").style.fontSize = "11px";
-            valid=false;
+            valid = false;
         }
     }
 
     //apipost
     if (fname !== '' && pass !== '' && mailGet != '') {
 
-        if(valid){
-        fetch("https://667011c30900b5f872494ed9.mockapi.io/users", {
-            method: "POST",
-            body: JSON.stringify({
-                name: fname,
-                email: mailGet,
-                password: pass
-            }),
-            headers: {
-                "content-type": "application/json;charset=UTF-8"
-            }
-        }).then((response) => response.json())
-            .then((json) => console.log(json));
-        setTimeout(() => {
-            document.getElementById("error1").style.display = "none";
-            document.getElementById("error2").style.display = "none";
-            document.getElementById("error3").style.display = "none";
-            document.getElementById("usernameinput").value = "";
-            document.getElementById("passwordinput").value = "";
-            document.getElementById("mailinput").value = "";
-            successMsg.innerHTML = "Account Created Successfuly!" + "&nbsp;&nbsp;";
-            successMsg.style.color = "green";
-            window.location.href = "./sciencelogin.html";
-        }, 1000)
+        if (valid) {
+            fetch("https://667011c30900b5f872494ed9.mockapi.io/users", {
+                method: "POST",
+                body: JSON.stringify({
+                    name: fname,
+                    email: mailGet,
+                    password: pass
+                }),
+                headers: {
+                    "content-type": "application/json;charset=UTF-8"
+                }
+            }).then((response) => response.json())
+                .then((json) => console.log(json));
+            setTimeout(() => {
+                document.getElementById("error1").style.display = "none";
+                document.getElementById("error2").style.display = "none";
+                document.getElementById("error3").style.display = "none";
+                document.getElementById("usernameinput").value = "";
+                document.getElementById("passwordinput").value = "";
+                document.getElementById("mailinput").value = "";
+                successMsg.innerHTML = "Account Created Successfuly!" + "&nbsp;&nbsp;";
+                successMsg.style.color = "green";
+                window.location.href = "./sciencelogin.html";
+            }, 1000)
+        }
     }
-}
 }
 let unameChange = (event) => {
     event.preventDefault();
@@ -150,50 +148,59 @@ let mainLogin = (event) => {
 
 let loginUserMain = (event) => {
     event.preventDefault();
-    let maillogin = document.getElementById("inputloginmail").value;
-    let passlogin = document.getElementById("inputloginpass").value;
-
+    let maillogin = document.getElementById("inputloginmail").value.trim().toLowerCase();
+    let passlogin = document.getElementById("inputloginpass").value.trim();
+    let rememberme = document.getElementById("usercheckbox");
     // GET METHOD
-
+    
     let getUrl2 = fetch("https://667011c30900b5f872494ed9.mockapi.io/users");
 
     getUrl2.then(response => response.json())
 
         .then(data => {
-            if (maillogin != "" && passlogin != "") {
+            let userfound = false;
+            if (maillogin !== "" && passlogin !== "" && rememberme.checked) {
                 data.forEach(user => {
-                    if (maillogin === user.email && passlogin === user.password) {
-                        setTimeout(()=>{
+                    if (maillogin.toLowerCase() === user.email.toLowerCase() && passlogin === user.password && rememberme.checked) {
+                        userfound=true;
                         window.location.href = "./index.html";
-                        document.getElementById("invalidmsg").style.display = "none";
-                    },1000)
                     }
-                    else{
-                        document.getElementById("invalidmsg").style.display = "block";
-                    }
-                })
+                });
+                if (!userfound) {
+                    document.getElementById("invalidmsglogin").style.display="block";
+                }
             }
         })
+    
 
     document.getElementById("error4").style.display = "none";
     document.getElementById("error5").style.display = "none";
     if (maillogin === '') {
         document.getElementById("error4").style.display = "block";
-        document.getElementById("invalidmsg").style.display = "none";
     }
     if (passlogin === '') {
         document.getElementById("error5").style.display = "block";
-        document.getElementById("invalidmsg").style.display = "none";
     }
 
+    if (!rememberme.checked) {
+        document.getElementById("checkboxerror").style.display = "block";
+        document.getElementById("invalidmsglogin").style.display="none";
+    } else {
+        document.getElementById("checkboxerror").style.display = "none";
+    }
 }
 let mailChangelogin = (event) => {
     event.preventDefault();
     document.getElementById("error4").style.display = "none";
+    document.getElementById("invalidmsglogin").style.display="none";
+
 }
-let logpassChange = (event) => {
-    event.preventDefault();
+let logpassChange = () => {
     document.getElementById("error5").style.display = "none";
+    document.getElementById("invalidmsglogin").style.display="none";
+}
+let checknoxChange = () =>{
+    document.getElementById("checkboxerror").style.display="none";
 }
 function toggleSignupMenu() {
     const nav = document.querySelector('.subloginnav');

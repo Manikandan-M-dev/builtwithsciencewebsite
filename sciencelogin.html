@@ -19,11 +19,14 @@
             <div class="signupform">
                 <form>
                     <h1>Log in</h1><br>
-                    <p id="invalidmsg">Invalid Email or password</p><br>
+                    <p id="invalidmsglogin">Invalid Email or password</p><br>
                     <label>Email<br><input type="email" name="" id="inputloginmail"class="inputuname"oninput="mailChangelogin(event)"></label><br>
                     <span id="error4">Please Enter your Email</span><br>
-                    <label> Password<br><input type="text" name="" id="inputloginpass"class="inputuname"oninput="logpassChange(event)"></label><br>
+                    <label> Password<br><input type="text" name="" id="inputloginpass"class="inputuname"oninput="logpassChange()"></label><br>
                     <span id="error5">Please Enter your Password</span><br>
+                    <label><input type="checkbox" id="usercheckbox" oninput="checknoxChange()">&nbsp;Remember Me</label>
+                    <p id="checkboxerror">This field is required</p>
+                    <br><br>
                     <div class="signsub">
                     <button id="signupsubmit" onclick="loginUserMain(event)">Login</button>
                 </div><br><br>

@@ -886,9 +886,14 @@ a {
     text-decoration: underline;
     color: blue;
 }
-#invalidmsg{
+#invalidmsglogin{
     color: red;
     display: none;
+}
+#checkboxerror{
+    color: red;
+    display: none;
+    font-size: 14px;
 }
 /* //responsive */
 @media screen and (max-width:1024px){
