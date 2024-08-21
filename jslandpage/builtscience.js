@@ -159,9 +159,9 @@ let loginUserMain = (event) => {
 
         .then(data => {
             let userfound = false;
-            if (maillogin !== "" && passlogin !== "" && rememberme.checked) {
+            if (maillogin !== "" && passlogin !== "" ) {
                 data.forEach(user => {
-                    if (maillogin.toLowerCase() === user.email.toLowerCase() && passlogin === user.password && rememberme.checked) {
+                    if (maillogin.toLowerCase() === user.email.toLowerCase() && passlogin === user.password) {
                         userfound=true;
                         window.location.href = "./index.html";
                     }
@@ -183,10 +183,7 @@ let loginUserMain = (event) => {
     }
 
     if (!rememberme.checked) {
-        document.getElementById("checkboxerror").style.display = "block";
         document.getElementById("invalidmsglogin").style.display="none";
-    } else {
-        document.getElementById("checkboxerror").style.display = "none";
     }
 }
 let mailChangelogin = (event) => {
@@ -199,9 +196,7 @@ let logpassChange = () => {
     document.getElementById("error5").style.display = "none";
     document.getElementById("invalidmsglogin").style.display="none";
 }
-let checknoxChange = () =>{
-    document.getElementById("checkboxerror").style.display="none";
-}
+
 function toggleSignupMenu() {
     const nav = document.querySelector('.subloginnav');
     nav.classList.toggle('show');
